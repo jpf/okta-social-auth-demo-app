@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  div.row
+    div.small-8.columns.small-centered
+      h2#title Tommy's Tires Admin
+  div.row
+    div.small-8.columns.small-centered
+      form(action="/server/parameters", method="post")
+        div.row.small-centered
+          div.small-8.columns.small-centered
+            input(type="text", name="Google Social Auth Login Url", placeholder="Google Social Auth Login Url")
+        div.row.small-centered
+          div.small-8.columns.small-centered
+            input(type="text", name="Facebook Social Auth Login Url", placeholder="Facebook Auth Login Url")
+        div.row.small-centered
+          div.small-8.columns.small-centered
+            input(type="text", name="redirect_uri", placeholder="Redirect URI")
+        div.row.small-centered
+          div.small-2.columns.small-centered
+            input.button.success.tiny(type="submit", value="Submit")

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  div.container
+  div.row
+    div.small-8.columns.small-centered
+      h3#title Tommy's Tires Patient Portal
+  div.row
+    div.small-8.columns.small-centered
+      form(action="/login", method="post")
+        div.row.small-centered
+          div.small-8.columns.small-centered
+            input(type="text", name="username", placeholder="Username")
+        div.row.small-centered
+          div.small-8.columns.small-centered
+            input(type="text", name="password", placeholder="Password")
+        div.row.small-centered
+          div.small-7.columns.small-centered
+            input.button.success.tiny(type="submit", value="Submit")
+            a#fb-login.button.tiny(href="http://rain.okta1.com:1802/sso/authorize/0oaoc1hfZEjXmmp330g3?redirect_uri=http://localhost:3000/social_auth_processing") Login to Facebook
+            a#google-login.button.tiny(href="http://rain.okta1.com:1802/sso/authorize/0oaoc1hfZEjXmmp330g3?redirect_uri=http://localhost:3000/social_auth_processing") Login to Google

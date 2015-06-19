@@ -1,0 +1,29 @@
+html *
+{
+   font-family: 'Open Sans', "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+body {
+  padding: 50px;
+  background-color: #aaa;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#title {
+	text-align: center;
+	margin-bottom: 20px;
+	color: rgb(255, 255, 255);
+}
+
+#fb-login {
+	margin-left: 10px;
+	background-color: #6d84b4;
+}
+
+#google-login {
+	margin-left: 10px;
+	background-color: #dd4b39;
+}

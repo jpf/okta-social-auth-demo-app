@@ -1,1 +1,2 @@
-# okta-social-auth-demo-app
+# A Demo Social Authentication Application using Okta's APIs.
+
