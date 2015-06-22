@@ -6,16 +6,19 @@ block content
       h2#title Tommy's Tires Admin
   div.row
     div.small-8.columns.small-centered
-      form(action="/server/parameters", method="post")
+      div.row.small-centered
+        div.small-8.columns.small-centered
+          h5 #{message}
+      form(action="/admin", method="post")
         div.row.small-centered
           div.small-8.columns.small-centered
-            input(type="text", name="Google Social Auth Login Url", placeholder="Google Social Auth Login Url")
+            input(type="text", name="googleLoginUrl", placeholder="Google Social Auth Login Url" value="#{googleLoginUrl}")
         div.row.small-centered
           div.small-8.columns.small-centered
-            input(type="text", name="Facebook Social Auth Login Url", placeholder="Facebook Auth Login Url")
+            input(type="text", name="facebookLoginUrl", placeholder="Facebook Social Auth Login Url" value="#{facebookLoginUrl}")
         div.row.small-centered
           div.small-8.columns.small-centered
-            input(type="text", name="redirect_uri", placeholder="Redirect URI")
+            input(type="text", name="redirectURI", placeholder="Redirect URI" value="#{redirectURI}")
         div.row.small-centered
           div.small-2.columns.small-centered
             input.button.success.tiny(type="submit", value="Submit")
