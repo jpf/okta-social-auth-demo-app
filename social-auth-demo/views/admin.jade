@@ -20,8 +20,16 @@ block content
           div.small-8.columns.small-centered
             input(type="text", name="redirectURI", placeholder="Redirect URI" value="#{redirectURI}")
         div.row.small-centered
-          div.small-2.columns.small-centered
-            input.button.success.tiny(type="submit", value="Submit")
+          div.small-8.columns.small-centered
+            label(for="popup") Popup
+            if popup == 'on'
+              input(type="checkbox", name="popup", placeholder="Pop-up" checked)
+            else
+              input(type="checkbox", name="popup", placeholder="Pop-up")
+        div.row.small-centered
+          div.small-8.columns.small-centered
+            input(type="text", name="apiToken", placeholder="API Token" value="#{apiToken}")
         div.row.small-centered
           div.small-2.columns.small-centered
-            a#google-login.button.tiny(href='/') Home
+            input.button.success.tiny(type="submit", value="Submit")
+            a.button.tiny(href='/') Home

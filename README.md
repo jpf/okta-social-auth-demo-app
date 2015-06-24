@@ -12,7 +12,6 @@ A Demo Social Authentication Application using Okta's APIs.
 
 1.  Okta's APIs
 2.  NodeJS
-3.  IndexedDb
 
 ## Installing
 
