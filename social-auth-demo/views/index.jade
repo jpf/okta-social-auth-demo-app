@@ -17,5 +17,6 @@ block content
         div.row.small-centered
           div.small-7.columns.small-centered
             input.button.success.tiny(type="submit", value="Submit")
-            a#fb-login.button.tiny(href="http://rain.okta1.com:1802/sso/authorize/0oaoc1hfZEjXmmp330g3?redirect_uri=http://localhost:3000/social_auth_processing") Login to Facebook
-            a#google-login.button.tiny(href="http://rain.okta1.com:1802/sso/authorize/0oaoc1hfZEjXmmp330g3?redirect_uri=http://localhost:3000/social_auth_processing") Login to Google
+            a#fb-login.button.tiny(href= '#{oktaFacebookLoginUrl}') Login to Facebook
+            a#google-login.button.tiny(href= '#{oktaGoogleLoginUrl}') Login to Google
+            a.button.tiny(href='/admin') Admin
