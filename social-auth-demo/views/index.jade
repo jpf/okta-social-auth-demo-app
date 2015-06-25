@@ -4,7 +4,10 @@ block content
   div.container
   div.row
     div.small-8.columns.small-centered
-      h3#title Tommy's Tires Patient Portal
+      h3#title Tommy's Tires Customer Portal
+  div.row
+    div.small-8.columns.small-centered
+      h3#info
   div.row
     div.small-8.columns.small-centered
       form(action="/login", method="post")
@@ -17,5 +20,10 @@ block content
         div.row.small-centered
           div.small-7.columns.small-centered
             input.button.success.tiny(type="submit", value="Submit")
-            a#fb-login.button.tiny(href="http://rain.okta1.com:1802/sso/authorize/0oaoc1hfZEjXmmp330g3?redirect_uri=http://localhost:3000/social_auth_processing") Login to Facebook
-            a#google-login.button.tiny(href="http://rain.okta1.com:1802/sso/authorize/0oaoc1hfZEjXmmp330g3?redirect_uri=http://localhost:3000/social_auth_processing") Login to Google
+            each idp in identityProviders
+              - var idpUrl = idp._links.login.href
+              if redirectUri
+                - idpUrl = idpUrl + "?redirect_uri=" + redirectUri
+              a(class="#{idp.type}-login button tiny", href="#{idpUrl}") #{idp.name}
+  script(src='javascripts/jquery-2.1.4.min.js')
+  script(src='javascripts/UrlUtil.js')

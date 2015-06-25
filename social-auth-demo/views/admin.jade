@@ -12,13 +12,22 @@ block content
       form(action="/admin", method="post")
         div.row.small-centered
           div.small-8.columns.small-centered
-            input(type="text", name="googleLoginUrl", placeholder="Google Social Auth Login Url" value="#{googleLoginUrl}")
+            p URL for your Okta organization:
         div.row.small-centered
           div.small-8.columns.small-centered
-            input(type="text", name="facebookLoginUrl", placeholder="Facebook Social Auth Login Url" value="#{facebookLoginUrl}")
+            input(type="text", name="oktaOrgUrl", placeholder="https://example.okta.com" value="#{oktaOrgUrl}")
         div.row.small-centered
           div.small-8.columns.small-centered
-            input(type="text", name="redirectURI", placeholder="Redirect URI" value="#{redirectURI}")
+            p API Token for your Okta organization:
+        div.row.small-centered
+          div.small-8.columns.small-centered
+            input(type="text", name="oktaToken", placeholder="FIXME" value="#{oktaToken}")
+        div.row.small-centered
+          div.small-8.columns.small-centered
+            p Redirect URI:
+        div.row.small-centered
+          div.small-8.columns.small-centered
+            input(type="text", name="redirectUri", placeholder="FIXME" value="#{redirectUri}")
         div.row.small-centered
           div.small-2.columns.small-centered
             input.button.success.tiny(type="submit", value="Submit")

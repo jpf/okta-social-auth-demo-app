@@ -19,7 +19,7 @@ router.post('/', function(req, res, next) {
     localStorage.setItem('oktaOrgUrl', req.body.oktaOrgUrl);
     localStorage.setItem('oktaToken', req.body.oktaToken);
     localStorage.setItem('redirectUri', req.body.redirectUri);
-    res.render('admin', {
+    res.rendier('admin', {
 	message: 'Settings Saved!',
   	'oktaOrgUrl': req.body.oktaOrgUrl,
         'oktaToken': req.body.oktaToken,
