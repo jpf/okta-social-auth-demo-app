@@ -5,11 +5,6 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 }
 var router = express.Router();
 
-<<<<<<< HEAD
-console.log(localStorage.getItem('oktaOrgUrl'));
-console.log(localStorage.getItem('oktaToken'));
-console.log(localStorage.getItem('redirectUri'));
-
 var info = '';
 
 var request = require('request');
@@ -23,7 +18,8 @@ router.get('/', function(req, res, next) {
 	'info': info,
 	'identityProviders': [],
 	'redirectUri': redirectUri,
-	'hello': "Hello World",
+  	'popup': localStorage.getItem('popup'),
+	'hello': "Hello World"
     }
     
     if (!redirectUri) {
@@ -47,21 +43,6 @@ router.get('/', function(req, res, next) {
     } else {
 	res.render('index', viewLocals);
     }
-=======
-if (typeof localStorage === "undefined" || localStorage === null) {
-  var LocalStorage = require('node-localstorage').LocalStorage;
-  var localStorage = new LocalStorage('./database');
-}
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  var redirectUri = localStorage.getItem('redirectURI')
-  res.render('index', {
-  	'oktaFacebookLoginUrl': localStorage.getItem('facebookLoginUrl') + '?redirect_uri=' + redirectUri,
-  	'oktaGoogleLoginUrl': localStorage.getItem('googleLoginUrl') + '?redirect_uri=' + redirectUri,
-  	'popup': localStorage.getItem('popup')
-  });
->>>>>>> upstream/master
 });
 
 
