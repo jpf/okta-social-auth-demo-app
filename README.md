@@ -91,13 +91,25 @@ A Demo Social Authentication Application using Okta's APIs.
 
 ## Developer notes
 
+### Key files
+
+-   `social-auth-demo/routes/index.js` and `social-auth-demo/views/index.jade`
+    
+    These are the files with the code and template responsible for
+    rendering the `/` route. The code uses the Okta API to fetch a list
+    of available Social Authentication providers, which it passes to
+    the template for rendering into buttons. The code is also
+    responsible for rendering the `/social_auth_processing` route.
+-   `social-auth-demo/routes/admin.js` and
+    `social-auth-demo/views/admin.jade`
+    
+    The files responsible for rendering the `/admin` route.
+
 ### Endpoints
 
 -   `/admin`
-          The Admin panel.
+    
+    The Admin panel.
 -   `/social_auth_processing`
-          The route that handles completed Social Authentication flows.
-
-## To Do
-
--   [ ] `npm start` should display the URL to load when it's ready
+    
+    The route that handles completed Social Authentication flows.
