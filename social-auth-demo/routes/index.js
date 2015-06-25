@@ -47,7 +47,9 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/social_auth_processing', function(req, res, next) {
-  res.render('social_auth_processing');
+    res.render('social_auth_processing', {
+	'oktaBaseUrl': localStorage.getItem('oktaOrgUrl')
+    });
 });
 
 module.exports = router;
