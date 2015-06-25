@@ -73,12 +73,10 @@ A Demo Social Authentication Application using Okta's APIs.
 
 ## Setting up the "Tommy's Tires" sample application
 
-1.  `$ cd social-auth-demo`
+1.  From this directory, switch to the `social-auth-demo` sub-directory: `cd social-auth-demo`
 2.  Install the packages specified in the `packages.json` file using
-    the `npm install` command:
-    `$ npm install`
-3.  Start the application with the with `npm start` command:
-    `$ npm start`
+    the `npm install` command.
+3.  Start the application with the with `npm start` command.
 4.  Open the "Tommy's Tires" sample application at <http://localhost:3000>
 5.  Follow the instructions on the Admin page. After configuring the
     "Base URL" and "API Token", click on the green "Submit" button
