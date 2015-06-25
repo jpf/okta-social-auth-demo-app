@@ -24,6 +24,12 @@ block content
               - var idpUrl = idp._links.login.href
               if redirectUri
                 - idpUrl = idpUrl + "?redirect_uri=" + redirectUri
-              a(class="#{idp.type}-login button tiny", href="#{idpUrl}") #{idp.name}
+              if popup == 'on'
+                a(class="#{idp.type}-login button tiny", onclick='popup("#{idpUrl}")') #{idp.name}
+              else
+                a(class="#{idp.type}-login button tiny", href="#{idpUrl}") #{idp.name}
+            a.button.tiny(href='/admin') Admin
   script(src='javascripts/jquery-2.1.4.min.js')
+  script(src='javascripts/underscore-min.js')
   script(src='javascripts/UrlUtil.js')
+  script(src='javascripts/popup.js')

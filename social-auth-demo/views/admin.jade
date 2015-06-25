@@ -29,5 +29,16 @@ block content
           div.small-8.columns.small-centered
             input(type="text", name="redirectUri", placeholder="FIXME" value="#{redirectUri}")
         div.row.small-centered
+          div.small-8.columns.small-centered
+            label(for="popup") Popup
+            if popup == 'on'
+              input(type="checkbox", name="popup", placeholder="Pop-up" checked)
+            else
+              input(type="checkbox", name="popup", placeholder="Pop-up")
+        div.row.small-centered
+          div.small-8.columns.small-centered
+            input(type="text", name="apiToken", placeholder="API Token" value="#{apiToken}")
+        div.row.small-centered
           div.small-2.columns.small-centered
             input.button.success.tiny(type="submit", value="Submit")
+            a.button.tiny(href='/') Home

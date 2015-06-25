@@ -1,10 +1,10 @@
-function getURIParams (name, url) {
-      if (!url) {
-        url = location.href;
-      }
-      name = name.replace(/[\[]/, '\\').replace(/[\]]/, '\\');
-      var regexS = '[\\?&]' + name + '=([^&#]*)';
-      var regex = new RegExp(regexS);
-      var results = regex.exec(url);
-      return results === null ? null : results[1];
-    }
+function parseQuery(query) {
+  var params = {};
+  var pairs = decodeURIComponent(query.replace(/\+/g, ' ')).split('&');
+  for (var i = 0; i < pairs.length; i++) {
+  	var pair = pairs[i];
+  	var data = pair.split('=');
+  	params[data.shift()] = data.join('=');
+  }
+  return params;
+}
