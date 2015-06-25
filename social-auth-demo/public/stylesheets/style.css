@@ -22,12 +22,14 @@ a {
 	color: rgb(255, 255, 255);
 }
 
-.FACEBOOK-login {
+.button {
 	margin-left: 10px;
+}
+
+.FACEBOOK-login {
 	background-color: #6d84b4;
 }
 
 .GOOGLE-login {
-	margin-left: 10px;
 	background-color: #dd4b39;
 }
