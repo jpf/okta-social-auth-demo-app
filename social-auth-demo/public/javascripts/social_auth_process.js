@@ -12,8 +12,8 @@ $.ajax({
     // assign the result to the global 'debug' variable so that you can
     // inspect it via the developer console in your web browser
     debug = data;
-    $('#userDisplayName').html("User name: " + data.profile.displayName);
-    $('#userId').html("User ID: " + data.id);
+    $('#userDisplayName').html(data.profile.displayName);
+    $('#userId').html(data.id);
 })
 .fail(function(xhr, textStatus, error) {
   var title, message;
