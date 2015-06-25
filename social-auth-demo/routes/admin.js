@@ -9,31 +9,27 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 router.get('/', function(req, res, next) {
 
   res.render('admin', {
-  	'redirectURI': localStorage.getItem('redirectURI'),
-  	'facebookLoginUrl': localStorage.getItem('facebookLoginUrl'),
-  	'googleLoginUrl': localStorage.getItem('googleLoginUrl'),
+        'oktaOrgUrl': localStorage.getItem('oktaOrgUrl'),
+        'oktaToken': localStorage.getItem('oktaToken'),
   	'popup': localStorage.getItem('popup'),
-  	'apiToken': localStorage.getItem('apiToken'),
-  	
+  	'redirectUri': localStorage.getItem('redirectUri')
   });
 });
 
 router.post('/', function(req, res, next) {
-  localStorage.setItem('redirectURI', req.body.redirectURI);
-  localStorage.setItem('facebookLoginUrl', req.body.facebookLoginUrl);
-  localStorage.setItem('googleLoginUrl', req.body.googleLoginUrl);
-  if (!req.body.popup) {
-  	req.body.popup = "off";
-  }
-  localStorage.setItem('popup', req.body.popup);
-  localStorage.setItem('apiToken', req.body.apiToken);
-  res.render('admin', {message: 'Settings Saved!',
-  	'redirectURI': req.body.redirectURI,
-  	'facebookLoginUrl': req.body.facebookLoginUrl,
-  	'googleLoginUrl': req.body.googleLoginUrl,
+    localStorage.setItem('oktaOrgUrl', req.body.oktaOrgUrl);
+    localStorage.setItem('oktaToken', req.body.oktaToken);
+    localStorage.setItem('redirectUri', req.body.redirectUri);
+    if (!req.body.popup) {
+	req.body.popup = "off";
+    }
+    res.render('admin', {
+	message: 'Settings Saved!',
+  	'oktaOrgUrl': req.body.oktaOrgUrl,
+        'oktaToken': req.body.oktaToken,
   	'popup': req.body.popup,
-  	'apiToken': req.body.apiToken,
-  })
-}); 
+  	'redirectUri': req.body.redirectUri
+    })
+});
 
 module.exports = router;

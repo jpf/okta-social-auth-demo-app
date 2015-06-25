@@ -12,13 +12,16 @@ block content
       form(action="/admin", method="post")
         div.row.small-centered
           div.small-8.columns.small-centered
-            input(type="text", name="googleLoginUrl", placeholder="Google Social Auth Login Url" value="#{googleLoginUrl}")
+            label(for="oktaOrgUrl") URL for your Okta organization
+            input(type="text", name="oktaOrgUrl", placeholder="https://example.okta.com" value="#{oktaOrgUrl}")
         div.row.small-centered
           div.small-8.columns.small-centered
-            input(type="text", name="facebookLoginUrl", placeholder="Facebook Social Auth Login Url" value="#{facebookLoginUrl}")
+            label(for="oktaToken") API Token for your Okta organization
+            input(type="text", name="oktaToken", placeholder="FIXME" value="#{oktaToken}")
         div.row.small-centered
           div.small-8.columns.small-centered
-            input(type="text", name="redirectURI", placeholder="Redirect URI" value="#{redirectURI}")
+            label(for="redirectUri") Redirect URI
+            input(type="text", name="redirectUri", placeholder="FIXME" value="#{redirectUri}")
         div.row.small-centered
           div.small-8.columns.small-centered
             label(for="popup") Popup
@@ -26,9 +29,6 @@ block content
               input(type="checkbox", name="popup", placeholder="Pop-up" checked)
             else
               input(type="checkbox", name="popup", placeholder="Pop-up")
-        div.row.small-centered
-          div.small-8.columns.small-centered
-            input(type="text", name="apiToken", placeholder="API Token" value="#{apiToken}")
         div.row.small-centered
           div.small-2.columns.small-centered
             input.button.success.tiny(type="submit", value="Submit")

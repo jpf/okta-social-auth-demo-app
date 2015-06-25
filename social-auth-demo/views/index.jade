@@ -4,7 +4,10 @@ block content
   div.container
   div.row
     div.small-8.columns.small-centered
-      h3#title Tommy's Tires Patient Portal
+      h3#title Tommy's Tires Customer Portal
+  div.row
+    div.small-8.columns.small-centered
+      h3#info
   div.row
     div.small-8.columns.small-centered
       form(action="/login", method="post")
@@ -17,13 +20,16 @@ block content
         div.row.small-centered
           div.small-7.columns.small-centered
             input.button.success.tiny(type="submit", value="Submit")
-            if popup == 'on'
-              a#fb-login.button.tiny(onclick='popup("#{oktaFacebookLoginUrl}")') Login to Facebook
-              a#google-login.button.tiny(onclick='popup("#{oktaGoogleLoginUrl}")') Login to Google
-            else
-              a#fb-login.button.tiny(href= '#{oktaFacebookLoginUrl}') Login to Facebook
-              a#google-login.button.tiny(href= '#{oktaGoogleLoginUrl}') Login to Google
+            each idp in identityProviders
+              - var idpUrl = idp._links.login.href
+              if redirectUri
+                - idpUrl = idpUrl + "?redirect_uri=" + redirectUri
+              if popup == 'on'
+                a(class="#{idp.type}-login button tiny", onclick='popup("#{idpUrl}")') #{idp.name}
+              else
+                a(class="#{idp.type}-login button tiny", href="#{idpUrl}") #{idp.name}
             a.button.tiny(href='/admin') Admin
+  script(src='javascripts/jquery-2.1.4.min.js')
   script(src='javascripts/underscore-min.js')
   script(src='javascripts/UrlUtil.js')
   script(src='javascripts/popup.js')
