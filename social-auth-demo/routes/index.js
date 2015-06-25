@@ -11,7 +11,8 @@ router.get('/', function(req, res, next) {
   var redirectUri = localStorage.getItem('redirectURI')
   res.render('index', {
   	'oktaFacebookLoginUrl': localStorage.getItem('facebookLoginUrl') + '?redirect_uri=' + redirectUri,
-  	'oktaGoogleLoginUrl': localStorage.getItem('googleLoginUrl') + '?redirect_uri=' + redirectUri
+  	'oktaGoogleLoginUrl': localStorage.getItem('googleLoginUrl') + '?redirect_uri=' + redirectUri,
+  	'popup': localStorage.getItem('popup')
   });
 });
 

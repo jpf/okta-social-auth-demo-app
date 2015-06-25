@@ -17,6 +17,13 @@ block content
         div.row.small-centered
           div.small-7.columns.small-centered
             input.button.success.tiny(type="submit", value="Submit")
-            a#fb-login.button.tiny(href= '#{oktaFacebookLoginUrl}') Login to Facebook
-            a#google-login.button.tiny(href= '#{oktaGoogleLoginUrl}') Login to Google
+            if popup == 'on'
+              a#fb-login.button.tiny(onclick='popup("#{oktaFacebookLoginUrl}")') Login to Facebook
+              a#google-login.button.tiny(onclick='popup("#{oktaGoogleLoginUrl}")') Login to Google
+            else
+              a#fb-login.button.tiny(href= '#{oktaFacebookLoginUrl}') Login to Facebook
+              a#google-login.button.tiny(href= '#{oktaGoogleLoginUrl}') Login to Google
             a.button.tiny(href='/admin') Admin
+  script(src='javascripts/underscore-min.js')
+  script(src='javascripts/UrlUtil.js')
+  script(src='javascripts/popup.js')
