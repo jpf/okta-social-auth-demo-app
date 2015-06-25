@@ -3,13 +3,20 @@ extends layout
 block content
   div.row
     div.small-8.columns.small-centered
-      h2#title You are logged in
-  div.row
-    div.small-6.columns.key Your user name:
-    div.small-6.columns#userDisplayName
-  div.row
-    div.small-6.columns.key Your Okta User ID:
-    div.small-6.columns#userId
+      h2#title Social Authentication Complete
+  if error
+    div.row
+      div.small-8.columns.small-centered
+        h3 Authentication Error
+        p #{error}
+        a.button.tiny(href='/') Try again
+  else
+    div.row
+      div.small-6.columns.key Your user name:
+      div.small-6.columns#userDisplayName
+    div.row
+      div.small-6.columns.key Your Okta User ID:
+      div.small-6.columns#userId
   div.row
     div.small-8.columns.small-centered
       p.result
@@ -17,4 +24,5 @@ block content
   script(src='javascripts/jquery-2.1.4.min.js')
   script(src='javascripts/UrlUtil.js')
   script(src='javascripts/social_auth_process.js')
-  script getUserInfoViaCors('#{oktaBaseUrl}')
+  if !error
+    script getUserInfoViaCors('#{oktaBaseUrl}')

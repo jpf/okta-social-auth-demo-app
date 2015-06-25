@@ -47,7 +47,9 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/social_auth_processing', function(req, res, next) {
+    var error = req.query['error_description']
     res.render('social_auth_processing', {
+	'error': error,
 	'oktaBaseUrl': localStorage.getItem('oktaOrgUrl')
     });
 });
