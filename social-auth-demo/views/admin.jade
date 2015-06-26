@@ -7,16 +7,23 @@ block content
   div.row
     div.small-8.columns.small-centered
       div.row.small-centered
+        div.small-8.columns.small-centered(style="background: #FFFFCC")
+          p You must fill out the values below for this demonstration app to work with your Okta org. The "Base URL" is the base URL for your Okta org, it must not end in a slash! This URL should look like this: "https://example.oktapreview.com"
+          p Here are 
+            a(href="http://developer.okta.com/docs/api/getting_started/getting_a_token.html") instructions for getting an Okta API Token
+          p Leave the "Redirect URI" set as "http://localhost:3000/social_auth_processing". You will need to change this if you host this demonstration application on a remote system.
+    div.small-8.columns.small-centered
+      div.row.small-centered
         div.small-8.columns.small-centered
           h5 #{message}
       form(action="/admin", method="post")
         div.row.small-centered
           div.small-8.columns.small-centered
-            label(for="oktaOrgUrl") URL for your Okta organization
+            label(for="oktaOrgUrl") Base URL for your Okta organization
             input(type="text", name="oktaOrgUrl", placeholder="https://example.okta.com" value="#{oktaOrgUrl}")
         div.row.small-centered
           div.small-8.columns.small-centered
-            label(for="oktaToken") API Token for your Okta organization
+            label(for="oktaToken") API Token for your Okta organization 
             input(type="text", name="oktaToken", placeholder="FIXME" value="#{oktaToken}")
         div.row.small-centered
           div.small-8.columns.small-centered
