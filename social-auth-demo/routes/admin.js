@@ -7,7 +7,6 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 }
 
 router.get('/', function(req, res, next) {
-
   res.render('admin', {
         'oktaOrgUrl': localStorage.getItem('oktaOrgUrl'),
         'oktaToken': localStorage.getItem('oktaToken'),
@@ -23,6 +22,7 @@ router.post('/', function(req, res, next) {
     if (!req.body.popup) {
 	req.body.popup = "off";
     }
+    localStorage.setItem('popup', req.body.popup);
     res.render('admin', {
 	message: 'Settings Saved!',
   	'oktaOrgUrl': req.body.oktaOrgUrl,
