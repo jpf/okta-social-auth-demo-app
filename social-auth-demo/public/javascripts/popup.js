@@ -1,3 +1,7 @@
+function completeSocialAuthTransaction(txId) {
+  window.location.replace('/social_auth_tx_processing?txId=' + txId);
+}
+
 function popup(url) {
   var childWindow = open(url, '_blank');
   addEventListener('message', function (event) {
@@ -9,7 +13,7 @@ function popup(url) {
     var params = parseQuery(url.split('?')[1] || '');
 
     childWindow && childWindow.close();
-      //this.completeSocialAuthTransaction(params['txId']);
+      completeSocialAuthTransaction(params['txId']);
     }
     //TODO: check event.data.indexOf('error:authentication url:') and display an error message.
     }, false);
