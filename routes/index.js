@@ -8,12 +8,12 @@ var router = express.Router();
 var info = '';
 
 var request = require('request');
+var oktaBaseUrl = process.env.OKTA_URL || localStorage.getItem('oktaOrgUrl');
+var oktaToken = process.env.OKTA_TOKEN || localStorage.getItem('oktaToken');
+var redirectUri = process.env.OKTA_REDIRECT || localStorage.getItem('redirectUri');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    var oktaBaseUrl = localStorage.getItem('oktaOrgUrl');
-    var oktaToken = localStorage.getItem('oktaToken');
-    var redirectUri = localStorage.getItem('redirectUri');
     var viewLocals = {
 	'info': info,
 	'identityProviders': [],
@@ -50,7 +50,7 @@ router.get('/social_auth_processing', function(req, res, next) {
     var error = req.query['error_description']
     res.render('social_auth_processing', {
 	'error': error,
-	'oktaBaseUrl': localStorage.getItem('oktaOrgUrl')
+	'oktaBaseUrl': oktaBaseUrl
     });
 });
 
