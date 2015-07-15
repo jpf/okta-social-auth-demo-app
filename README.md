@@ -81,12 +81,15 @@ A Demo Social Authentication Application using Okta's APIs.
 5.  Follow the instructions on the Admin page. After configuring the
     "Base URL" and "API Token", click on the green "Submit" button
 6.  Click the blue "Home" button
-7.  You should now see a purple "Log in with Facebook" button, click
+7.  In your terminal window, restart the server by typing `Ctrl+C`
+          then type `npm start` again.
+8.  Switch back your browser <http://localhost:3000>
+9.  You should now see a purple "Log in with Facebook" button, click
     that button.
-8.  You will be sent to Facebook, which will prompt you to approve
+10. You will be sent to Facebook, which will prompt you to approve
     the "Okta Social Authentication Test" application
-9.  Click the blue "Okay" button
-10. If you see a page with your user name and Okta User ID, then you
+11. Click the blue "Okay" button
+12. If you see a page with your user name and Okta User ID, then you
     are done!
 
 ## Developer notes

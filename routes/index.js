@@ -13,6 +13,7 @@ var oktaToken = process.env.OKTA_TOKEN || localStorage.getItem('oktaToken');
 var redirectUri = process.env.OKTA_REDIRECT || localStorage.getItem('redirectUri');
 
 /* GET home page. */
+// FIXME: Run this on every request
 router.get('/', function(req, res, next) {
     var viewLocals = {
 	'info': info,
