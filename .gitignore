@@ -1,6 +1,6 @@
 npm-debug.log
-social-auth-demo/node_modules
-social-auth-demo/database
+node_modules/
+database/
 
 # Emacs files
 *~
