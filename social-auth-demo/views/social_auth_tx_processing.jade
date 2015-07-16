@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  div.container
+  div.row
+    div.small-8.columns.small-centered
+      h3#title Tommy's Tires Customer Portal
+  div.row
+    div.small-8.columns.small-centered
+      h3#info
+  div.row
+    div.small-8.columns.small-centered
+      form(action="/social_auth_tx_processing" method="post")
+        each val, key in targetUserResponse.profile
+          - var targetHref = JSON.stringify(profileProperty)
+          label(for="#{key}") #{key}
+          input(value="#{val}" name="#{key}")
+        input(type="submit" value="Submit")
+  script(src='javascripts/jquery-2.1.4.min.js')
+  script(src='javascripts/underscore-min.js')
