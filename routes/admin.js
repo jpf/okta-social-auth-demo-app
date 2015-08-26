@@ -7,11 +7,18 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 }
 
 router.get('/', function(req, res, next) {
+    var readonly = false;
+    var oktaOrgUrl = localStorage.getItem('oktaOrgUrl')
+    if (process.env.OKTA_URL) {
+	readonly = true;
+	oktaOrgUrl = process.env.OKTA_URL;
+    }
   res.render('admin', {
-        'oktaOrgUrl': localStorage.getItem('oktaOrgUrl'),
+        'oktaOrgUrl': oktaOrgUrl,
         'oktaToken': localStorage.getItem('oktaToken'),
   	'popup': localStorage.getItem('popup'),
-  	'redirectUri': localStorage.getItem('redirectUri')
+        'redirectUri': localStorage.getItem('redirectUri'),
+        'readonly': readonly
   });
 });
 

@@ -16,27 +16,33 @@ block content
       div.row.small-centered
         div.small-8.columns.small-centered
           h5 #{message}
-      form(action="/admin", method="post")
+      if !readonly
+        form(action="/admin", method="post")
+          div.row.small-centered
+            div.small-8.columns.small-centered
+              label(for="oktaOrgUrl") Base URL for your Okta organization
+              input(type="text", name="oktaOrgUrl", placeholder="https://example.okta.com", value="#{oktaOrgUrl}")
+          div.row.small-centered
+            div.small-8.columns.small-centered
+              label(for="oktaToken") API Token for your Okta organization 
+              input(type="text", name="oktaToken", placeholder="FIXME", value="#{oktaToken}")
+          div.row.small-centered
+            div.small-8.columns.small-centered
+              label(for="redirectUri") Redirect URI
+              input(type="text", name="redirectUri", placeholder="FIXME", value="#{redirectUri}")
+          div.row.small-centered
+            div.small-8.columns.small-centered
+              label(for="popup") Popup
+              if popup == 'on'
+                input(type="checkbox", name="popup", placeholder="Pop-up" checked)
+              else
+                input(type="checkbox", name="popup", placeholder="Pop-up")
+          div.row.small-centered
+            div.small-2.columns.small-centered
+              input.button.success.tiny(type="submit", value="Submit")
+              a.button.tiny(href='/') Home
+      else
         div.row.small-centered
           div.small-8.columns.small-centered
-            label(for="oktaOrgUrl") Base URL for your Okta organization
-            input(type="text", name="oktaOrgUrl", placeholder="https://example.okta.com" value="#{oktaOrgUrl}")
-        div.row.small-centered
-          div.small-8.columns.small-centered
-            label(for="oktaToken") API Token for your Okta organization 
-            input(type="text", name="oktaToken", placeholder="FIXME" value="#{oktaToken}")
-        div.row.small-centered
-          div.small-8.columns.small-centered
-            label(for="redirectUri") Redirect URI
-            input(type="text", name="redirectUri", placeholder="FIXME" value="#{redirectUri}")
-        div.row.small-centered
-          div.small-8.columns.small-centered
-            label(for="popup") Popup
-            if popup == 'on'
-              input(type="checkbox", name="popup", placeholder="Pop-up" checked)
-            else
-              input(type="checkbox", name="popup", placeholder="Pop-up")
-        div.row.small-centered
-          div.small-2.columns.small-centered
-            input.button.success.tiny(type="submit", value="Submit")
-            a.button.tiny(href='/') Home
+          p This app is configured using environment variables
+          p OKTA_URL is set to "#{oktaOrgUrl}"
