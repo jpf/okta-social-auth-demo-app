@@ -3,7 +3,7 @@
   "description": "A demonstration of Okta's Social Auth API.",
   "website": "https://small-sharp-tool.com/",
   "repository": "https://github.com/jpf/okta-social-auth-demo-app",
-  "success_url": "/welcome",
+  "success_url": "/",
   "env": {
     "OKTA_URL": {
       "description": "The URL for your Okta org, it MUST NOT end in '/'. For example: https://example.oktapreview.com"
