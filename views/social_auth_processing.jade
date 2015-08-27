@@ -10,13 +10,18 @@ block content
         h3 Authentication Error
         p #{error}
         a.button.tiny(href='/') Try again
+  else if unconfigured
+    div.row
+      div.small-8.columns.small-centered
+        h3 Unconfigured
+        p This application needs to be configured with a Okta URL and Okta API Token
   else
     div.row
       div.small-6.columns.key Your user name:
-      div.small-6.columns#userDisplayName
+      div.small-6.columns#userDisplayName #{displayName}
     div.row
       div.small-6.columns.key Your Okta User ID:
-      div.small-6.columns#userId
+      div.small-6.columns#userId #{userId}
   div.row
     div.small-8.columns.small-centered
       p.result
@@ -26,6 +31,3 @@ block content
 
   script(src='javascripts/jquery-2.1.4.min.js')
   script(src='javascripts/UrlUtil.js')
-  script(src='javascripts/social_auth_process.js')
-  if !error
-    script getUserInfoViaCors('#{oktaBaseUrl}')

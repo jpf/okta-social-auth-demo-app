@@ -1,6 +1,6 @@
 A Demo Social Authentication Application using Okta's APIs.
 
-# Technologies used:
+# Technologies used
 
 ## Front-end
 
@@ -14,23 +14,7 @@ A Demo Social Authentication Application using Okta's APIs.
 2.  NodeJS
 3.  IndexedDb
 
-# Deploy to Heroku
-
-<a href="https://heroku.com/deploy?template=https%3A%2F%2Fgithub.com%2Fjpf%2Fokta-social-auth-demo-app">
-  <img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy">
-</a>
-
 # Setup
-
-## Configuring CORS in your Okta org
-
-1.  From the "Security" menu on the Okta page, select "API".
-2.  Click on the "CORS" tab.
-3.  Click on the grey "Edit" button.
-4.  Make sure that the "Enable CORS for the following base URLs"
-    option is selected.
-5.  Enter "<http://localhost:3000/social_auth_processing>" into the text area.
-6.  Click the green "Save" button.
 
 ## Configuring a Facebook app for Facebook Login
 
@@ -79,7 +63,16 @@ A Demo Social Authentication Application using Okta's APIs.
 16. From the "Security" menu, select "Identity Providers"
 17. Click the "Add Identity Provider" button and select "Facebook"
 
-## Setting up the "Tommy's Tires" sample application
+## How to quickly set up "Tommy's Tires" on Heroku
+
+Click the button below to quickly deploy this application running
+in Heroku, then follow the prompts to configure the application.
+
+<a href="https://heroku.com/deploy?template=https%3A%2F%2Fgithub.com%2Fjpf%2Fokta-social-auth-demo-app">
+  <img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy">
+</a>
+
+## How to set up "Tommy's Tires" locally
 
 1.  From this directory, switch to the `social-auth-demo` sub-directory: `cd social-auth-demo`
 2.  Install the packages specified in the `packages.json` file using

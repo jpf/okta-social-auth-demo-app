@@ -47,11 +47,32 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/social_auth_processing', function(req, res, next) {
-    var error = req.query['error_description']
-    res.render('social_auth_processing', {
-	'error': error,
-	'oktaBaseUrl': oktaBaseUrl
-    });
+    var error = req.query['error_description'];
+    var userId = req.query['user_id'];
+    var request_options = {
+	url: oktaBaseUrl + '/api/v1/users/' + userId,
+	headers: {
+	    'Authorization': 'SSWS ' + oktaToken
+	}
+    };
+
+    if (oktaBaseUrl && oktaToken) {
+	request(request_options, function (error, response, body) {
+	    if (!error && response.statusCode == 200) {
+		var user = JSON.parse(body);
+		var displayName = user.profile.displayName;
+		res.render('social_auth_processing', {
+		    'displayName': displayName,
+		    'userId': userId,
+		    'error': error
+		});
+	    }
+	})
+    } else {
+	res.render('social_auth_processing', {
+	    'unconfigured': true
+	});
+    }
 });
 
 router.get('/social_auth_tx_processing', function(req, res, next) {
