@@ -10,9 +10,6 @@
     },
     "OKTA_TOKEN": {
       "description": "The API token for your Okta org"
-    },
-    "OKTA_REDIRECT": {
-      "description": "Where Okta should redirect users once they've finished social auth. This will be the URL for your site, ending in '/social_auth_processing'"
     }
   }
 }

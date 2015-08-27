@@ -10,11 +10,14 @@ var info = '';
 var request = require('request');
 var oktaBaseUrl = process.env.OKTA_URL || localStorage.getItem('oktaOrgUrl');
 var oktaToken = process.env.OKTA_TOKEN || localStorage.getItem('oktaToken');
-var redirectUri = process.env.OKTA_REDIRECT || localStorage.getItem('redirectUri');
 
 /* GET home page. */
 // FIXME: Run this on every request
 router.get('/', function(req, res, next) {
+    var protocol = req.secure ? 'https' : 'http'
+    var server_name = req.headers.host;
+    var redirectUri = protocol + '://' + server_name + '/social_auth_processing';
+
     var viewLocals = {
 	'info': info,
 	'identityProviders': [],
@@ -22,10 +25,6 @@ router.get('/', function(req, res, next) {
   	'popup': localStorage.getItem('popup')
     }
     
-    if (!redirectUri) {
-	redirectUri = 'http://localhost:3000/social_auth_processing';
-	localStorage.setItem('redirectUri', redirectUri);
-    }
     var request_options = {
 	url: oktaBaseUrl + '/api/v1/idps',
 	headers: {
