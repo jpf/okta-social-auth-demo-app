@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  div.container
+  div.row
+    div.small-8.columns.small-centered
+      h3#title Tommy's Tires Customer Portal
+  div.row
+    div.small-8.columns.small-centered
+      form(action="/login", method="post")
+        div.row.small-centered
+          div.small-8.columns.small-centered
+            input(type="text", name="username", placeholder="Username")
+        div.row.small-centered
+          div.small-8.columns.small-centered
+            input(type="text", name="password", placeholder="Password")
+        div.row.small-centered
+          div.small-7.columns.small-centered
+            input.button.success.tiny(type="submit", value="Submit")
+            each idp in identityProviders
+              - var idpUrl = idp._links.login.href
+              if redirectUri
+                - idpUrl = idpUrl + "?redirect_uri=" + redirectUri
+              if popup == 'on'
+                a(class="#{idp.type}-login button tiny", onclick='popup("#{idpUrl}")') #{idp.name}
+              else
+                a(class="#{idp.type}-login button tiny", href="#{idpUrl}") #{idp.name}
+            a.button.tiny(href='/admin') Admin
+  script(src='javascripts/jquery-2.1.4.min.js')
+  script(src='javascripts/underscore-min.js')
+  script(src='javascripts/UrlUtil.js')
+  script(src='javascripts/popup.js')

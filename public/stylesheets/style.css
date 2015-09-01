@@ -1,0 +1,35 @@
+html *
+{
+   font-family: 'Open Sans', "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+body {
+  padding: 50px;
+  background-color: #aaa;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.key {
+    text-align: right;
+}
+
+#title {
+	text-align: center;
+	margin-bottom: 20px;
+	color: rgb(255, 255, 255);
+}
+
+.button {
+	margin-left: 10px;
+}
+
+.FACEBOOK-login {
+	background-color: #6d84b4;
+}
+
+.GOOGLE-login {
+	background-color: #dd4b39;
+}
