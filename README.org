@@ -33,7 +33,8 @@ A Demo Social Authentication Application using Okta's APIs.
     7. Click the "Skip Quickstart" button.
     8. Click on the "Settings" section.
 
-    *Optional*
+    *Optional:*
+
     The steps above will make a Facebook app in "developer mode" which
     means that only you can see it. Follow the steps below if you want
     other people to be able to use your Facebook app.
