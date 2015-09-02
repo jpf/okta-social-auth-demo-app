@@ -35,7 +35,16 @@ router.get('/', function(req, res, next) {
     if (oktaBaseUrl && oktaToken) {
 	request(request_options, function (error, response, body) {
 	    if (!error && response.statusCode == 200) {
-		viewLocals['identityProviders'] = JSON.parse(body);
+		var identityProvidersFound = JSON.parse(body);
+		var identityProviders = [];
+		console.log(identityProvidersFound);
+		identityProvidersFound.forEach(function(idp) {
+		    console.log(idp);
+		    if ("protocol" in idp && "type" in idp.protocol && idp.protocol.type == "OAUTH2") {
+			identityProviders.push(idp)
+		    }
+		});
+		viewLocals['identityProviders'] = identityProviders;
 		res.render('index', viewLocals);
 	    }
 	})
