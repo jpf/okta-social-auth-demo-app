@@ -29,6 +29,22 @@ A Demo Social Authentication Application using Okta's APIs.
 7.  Click the "Skip Quickstart" button.
 8.  Click on the "Settings" section.
 
+**Optional**
+The steps above will make a Facebook app in "developer mode" which
+means that only you can see it. Follow the steps below if you want
+other people to be able to use your Facebook app.
+
+1.  Visit <http://developers.facebook.com>.
+2.  From the "My Apps" menu, select the app that you created above.
+3.  Click on "Settings" which is located on the left side of the page.
+4.  Enter in your email address in the field labeled "Contact Email".
+5.  Click the dark blue "Save Changes" button.
+6.  Click on "Status & Review" which is located on the left side of
+    the page.
+7.  Toggle the big button to "YES", this is the button labeled "Do
+    you want to make this app and all its live features available
+    to the general public?"
+
 ## Configuring Social Authentication in your Okta org
 
 1.  Log in to your Okta org in an other browser or window.
@@ -62,6 +78,23 @@ A Demo Social Authentication Application using Okta's APIs.
 15. Click on the blue "Admin" button
 16. From the "Security" menu, select "Identity Providers"
 17. Click the "Add Identity Provider" button and select "Facebook"
+
+## Configuring CORS in your Okta org
+
+You need to do this because the URLs in the CORS page are used to
+validate the `redirect_url` GET parameter used by this application.
+
+1.  From the "Security" menu on the Okta page, select "API".
+2.  Click on the "CORS" tab.
+3.  Click on the grey "Edit" button.
+4.  Make sure that the "Enable CORS for the following base URLs"
+    option is selected.
+5.  Enter the URL for this application into the text area.
+    -   If you are running this application locally, use "<http://localhost:3000/>"
+    -   If you are running this application on Heroku, use
+        "<http://:name.herokuapp.com/>" where `:name` is the
+        name of your application on Heroku.
+6.  Click the green "Save" button.
 
 ## How to quickly set up "Tommy's Tires" on Heroku
 
