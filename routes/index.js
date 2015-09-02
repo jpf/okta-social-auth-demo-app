@@ -15,6 +15,7 @@ var oktaToken = process.env.OKTA_TOKEN || localStorage.getItem('oktaToken');
 // FIXME: Run this on every request
 router.get('/', function(req, res, next) {
     var protocol = req.secure ? 'https' : 'http'
+    protocol = 'https' // Force to https for now
     var server_name = req.headers.host;
     var redirectUri = protocol + '://' + server_name + '/social_auth_processing';
 
