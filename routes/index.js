@@ -11,21 +11,8 @@ var request = require('request');
 var oktaBaseUrl = process.env.OKTA_URL || localStorage.getItem('oktaOrgUrl');
 var oktaToken = process.env.OKTA_TOKEN || localStorage.getItem('oktaToken');
 
-/* GET home page. */
-// FIXME: Run this on every request
-router.get('/', function(req, res, next) {
-    var protocol = req.secure ? 'https' : 'http'
-    protocol = 'https' // Force to https for now
-    var server_name = req.headers.host;
-    var redirectUri = protocol + '://' + server_name + '/social_auth_processing';
 
-    var viewLocals = {
-	'info': info,
-	'identityProviders': [],
-	'redirectUri': redirectUri,
-  	'popup': localStorage.getItem('popup')
-    }
-    
+function get_idps_from_okta(res, viewLocals) {
     var request_options = {
 	url: oktaBaseUrl + '/api/v1/idps',
 	headers: {
@@ -52,6 +39,50 @@ router.get('/', function(req, res, next) {
     } else {
 	res.render('index', viewLocals);
     }
+}
+
+function get_client_id_from_okta(res, viewLocals) {
+    var request_options = {
+	url: oktaBaseUrl + '/api/v1/clients',
+	headers: {
+	    'Authorization': 'SSWS ' + oktaToken
+	}
+    };
+
+    request(request_options, function (error, response, body) {
+	if (!error && response.statusCode == 200) {
+	    var oauthClientsFound = JSON.parse(body);
+	    var redirectUri = viewLocals['redirectUri']
+	    var oauthClients = [];
+	    console.log("Clients found");
+	    console.log(oauthClientsFound);
+	    oauthClientsFound.forEach(function(client) {
+		if ("redirect_uris" in client && redirectUri in client["redirect_uris"]) {
+		    console.log(client.client_id);
+		    viewLocals['clientId'] = client.client_id;
+		}
+	    });
+	    get_idps_from_okta(res, viewLocals);
+	}
+    })
+}
+
+/* GET home page. */
+// FIXME: Run this on every request
+router.get('/', function(req, res, next) {
+    var protocol = req.secure ? 'https' : 'http'
+    protocol = 'https' // Force to https for now
+    var server_name = req.headers.host;
+    var redirectUri = protocol + '://' + server_name + '/social_auth_processing';
+
+    var viewLocals = {
+	'info': info,
+	'identityProviders': [],
+  	'popup': localStorage.getItem('popup'),
+	'clientId': 'FzuJH9jQXZ5oc4NJ37pi',
+	'redirectUri': redirectUri
+    }
+    get_client_id_from_okta(res, viewLocals);
 });
 
 
