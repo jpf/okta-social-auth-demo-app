@@ -111,6 +111,9 @@ in Heroku, then follow the prompts to configure the application.
 1.  From this directory, switch to the `social-auth-demo` sub-directory: `cd social-auth-demo`
 2.  Install the packages specified in the `packages.json` file using
     the `npm install` command.
+3.  Export the values for `OKTA_URL` & `OKTA_TOKEN` in your terminal session.
+	- `export OKTA_URL="https://example.oktapreview.com"`
+	- `export OKTA_TOKEN="00xxxxxx-xxxxxxxxxx"`
 3.  Start the application with the with `npm start` command.
 4.  Open the "Tommy's Tires" sample application at <http://localhost:3000>
 5.  Follow the instructions on the Admin page. After configuring the
