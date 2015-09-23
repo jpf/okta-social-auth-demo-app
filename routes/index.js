@@ -57,7 +57,7 @@ function get_client_id_from_okta(res, viewLocals) {
 	    console.log("Clients found");
 	    console.log(oauthClientsFound);
 	    oauthClientsFound.forEach(function(client) {
-		if ("redirect_uris" in client && redirectUri in client["redirect_uris"]) {
+		if ("redirect_uris" in client && client["redirect_uris"].indexOf(redirectUri) > -1) {
 		    console.log(client.client_id);
 		    viewLocals['clientId'] = client.client_id;
 		}
